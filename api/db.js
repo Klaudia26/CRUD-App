@@ -1,10 +1,10 @@
 const createTournament = require('./createTournament');
 
 module.exports = () => {
-  const data = { tournaments: [] };
+  const data = { posts: [] };
 
   for (let i = 0; i < 50; i++) {
-    data.tournaments.push(createTournament());
+    data.posts.push(createTournament());
   }
 
   return data;

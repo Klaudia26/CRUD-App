@@ -25,7 +25,7 @@ function createTournament(name) {
       .split(' ')
       .map(upperFirst)
       .join(' '),
-    game: games[random(0, games.length - 1)],
+    post: games[random(0, games.length - 1)],
     participants: {
       current: random(0, 256),
       max: 256

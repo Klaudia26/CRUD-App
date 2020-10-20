@@ -1,8 +1,8 @@
-const createTournament = require('./createTournament');
+const createPost = require('./createPost');
 
 module.exports = (req, _res, next) => {
   if (req.method === 'POST') {
-    req.body = createTournament(req.body.name);
+    req.body = createPost(req.body.name);
   }
 
   next();

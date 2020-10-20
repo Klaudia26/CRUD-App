@@ -10,7 +10,7 @@ const games = [
   'League of Legends'
 ];
 
-function createTournament(name) {
+function createPost(name) {
   return {
     id: faker.random.uuid(),
     name:
@@ -34,4 +34,4 @@ function createTournament(name) {
   };
 }
 
-module.exports = createTournament;
+module.exports = createPost;

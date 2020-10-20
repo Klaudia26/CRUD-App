@@ -34,6 +34,7 @@ export default function Main() {
   return (
     <Container>
       <H4>POSTS</H4>
+      <button>Create Post</button>
       <div>
         {posts.map(post => {
           return (

@@ -10,8 +10,8 @@ export default function Main() {
   const posts = useSelector(getPostSelector);
 
   const alert = {
-    delete: 'Do you really want to delete this tournament?',
-    edit: 'New Tournament Name:'
+    delete: 'Do you really want to delete this post?',
+    edit: 'New Post Name:'
   };
   const deletePost = (id: string) => {
     if (window.confirm(alert.delete)) {

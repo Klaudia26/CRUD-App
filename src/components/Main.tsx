@@ -1,6 +1,7 @@
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { del, editPosts, getPosts } from '../redux/posts/actions';
+import { IPost } from '../api/api.types';
+import { createPost, del, editPosts, getPosts } from '../redux/posts/actions';
 import { getPostSelector } from '../redux/posts/selectors';
 import Container from './Container';
 import H4 from './H4';
@@ -11,7 +12,8 @@ export default function Main() {
 
   const alert = {
     delete: 'Do you really want to delete this post?',
-    edit: 'New Post Name:'
+    edit: 'New Post Name:',
+    create: 'Create New Post:'
   };
   const deletePost = (id: string) => {
     if (window.confirm(alert.delete)) {
@@ -27,6 +29,13 @@ export default function Main() {
     }
   };
 
+  const createPosts = (): void => {
+    const name = prompt(alert.create);
+    if (name) {
+      dispatch(createPost(name));
+    }
+  };
+
   useEffect(() => {
     dispatch(getPosts());
   }, []);
@@ -34,7 +43,7 @@ export default function Main() {
   return (
     <Container>
       <H4>POSTS</H4>
-      <button>Create Post</button>
+      <button onClick={createPosts}>Create Post</button>
       <div>
         {posts.map(post => {
           return (

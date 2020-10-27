@@ -4,13 +4,23 @@ import {
   Get,
   IPostsState,
   Delete,
-  Patch
+  Patch,
+  Create
 } from './types';
 import reducerCreator from '../reducer';
 
 const initialState: IPostsState = {
   posts: []
 };
+
+// @ts-ignore
+const create: Reducer<IPostsState, Create> = (
+  state: IPostsState,
+  { posts }
+): IPostsState => ({
+  ...state,
+  posts: [posts, ...state.posts]
+});
 
 // @ts-ignore
 const del: Reducer<IPostsState, Delete> = (
@@ -42,7 +52,8 @@ const patch: Reducer<IPostsState, Patch> = (
 const actionHandlers = {
   [types.GET]: get,
   [types.DELETE]: del,
-  [types.PATCH]: patch
+  [types.PATCH]: patch,
+  [types.CREATE]: create
 };
 
 export type postsActionHandlers = typeof actionHandlers;

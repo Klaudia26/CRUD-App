@@ -4,12 +4,18 @@ export enum PostsActionTypes {
   GET = 'GET',
   DELETE = 'DELETE',
   EDIT = 'EDIT',
-  PATCH = 'PATCH'
+  PATCH = 'PATCH',
+  CREATE = 'CREATE'
 }
 
 export interface IPostsState {
   posts: IPost[];
 }
+
+export type Create = {
+  type: typeof PostsActionTypes.CREATE;
+  posts: IPost;
+};
 
 export type Delete = {
   type: typeof PostsActionTypes.DELETE;
@@ -31,4 +37,4 @@ export type Get = {
   posts: IPost[];
 };
 
-export type PostsAction = Get | Delete | Patch | Edit;
+export type PostsAction = Get | Delete | Patch | Edit | Create;

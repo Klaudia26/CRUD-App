@@ -23,7 +23,13 @@ const patchPost = async (id: string, name: string): Promise<IPost> => {
   return response.data;
 };
 
+const postPosts = async (name: string): Promise<IPost> => {
+  const response = await httpClient.post('/posts', { name });
+  return response.data;
+};
+
 export default {
   getPost,
-  patchPost
+  patchPost,
+  postPosts
 };
